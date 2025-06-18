@@ -5,47 +5,36 @@ import { Briefcase } from 'lucide-react';
 const Experience = () => {
   const experiences = [
     {
-      company: "ICF (Integral Coach Factory - Indian Railways)",
-      position: "Project Intern",
-      period: "June 2024",
+      company: "TCS iON",
+      position: "Intern – Web Security Project",
+      period: "Jan – Mar 2025",
       description:
-        "Worked hands-on with electrical wiring for railway coaches, gaining industry-grade skills in circuit design and safety compliance.",
-      technologies: ["Circuit Design", "Electrical Wiring", "Railway Systems"],
-    },
-    {
-      company: "Test Yatra",
-      position: "Web Developer Intern",
-      period: "Feb – Apr 2025",
-      description:
-        "Built scalable and responsive web apps for ed-tech clients using modern JavaScript frameworks. Contributed to frontend and backend logic.",
-      technologies: ["React", "Node.js", "Tailwind CSS", "MongoDB"],
-    },
-    {
-      company: "BSNL (Bharat Sanchar Nigam Limited)",
-      position: "Project Intern",
-      period: "June 2025",
-      description:
-        "Explored telecom systems, including signal routing and data infrastructure. Participated in real-time monitoring and troubleshooting.",
-      technologies: ["Networking", "Signal Processing", "Telecom Infrastructure"],
+        "Successfully completed a 125-hour remote internship under industry mentorship. Designed and implemented a basic CAPTCHA service to secure a web-based application. Gained practical exposure to web development, human-computer interaction, and security mechanisms.",
+      technologies: [
+        "HTML/CSS", 
+        "JavaScript", 
+        "CAPTCHA Security", 
+        "HCI Concepts", 
+        "Software Documentation"
+      ],
     },
   ];
 
-return (
-  <section id="experience" className="py-24 px-4 md:px-10 bg-slate-900 text-white">
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: true }}
-      className="text-center mb-20"
-    >
-      <h2 className="text-5xl font-bold inline-flex items-center justify-center gap-3 text-purple-500">
-        <Briefcase className="w-8 h-8" /> Experience
-      </h2>
-      
-    </motion.div>
+  return (
+    <section id="experience" className="py-24 px-4 md:px-10 bg-slate-900 text-white">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="text-center mb-20"
+      >
+        <h2 className="text-5xl font-bold inline-flex items-center justify-center gap-3 text-purple-500">
+          <Briefcase className="w-8 h-8" /> Experience
+        </h2>
+      </motion.div>
 
-      <div className="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+      <div className="max-w-4xl mx-auto">
         {experiences.map((exp, index) => (
           <motion.div
             key={index}

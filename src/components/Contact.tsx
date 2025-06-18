@@ -147,7 +147,7 @@ const Contact = () => {
 
             <div className="flex items-center space-x-4">
               <a
-                href="https://github.com/Aswini1008"
+                href="https://github.com/aravinthbalu15"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center space-x-2 text-slate-300 hover:text-white"
@@ -157,7 +157,7 @@ const Contact = () => {
               </a>
 
               <a
-                href="https://www.linkedin.com/in/aswini-s-m-97292629a"
+                href="https://www.linkedin.com/in/aravinth-kumar-858851281"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center space-x-2 text-slate-300 hover:text-white"

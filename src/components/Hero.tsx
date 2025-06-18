@@ -70,7 +70,7 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
         >
           <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6">
-            Hi, I'm <span className="gradient-text">Aswini</span>
+            Hi, I'm <span className="gradient-text">Aravinth Kumar</span>
           </h1>
 
           <div className="text-2xl md:text-3xl text-slate-300 h-16 mb-4 flex justify-center items-center">

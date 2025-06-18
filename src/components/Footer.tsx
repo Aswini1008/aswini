@@ -19,9 +19,9 @@ const Footer = () => {
             viewport={{ once: true }}
             className="space-y-4"
           >
-            <h3 className="text-2xl font-bold gradient-text">Aswini.dev</h3>
+            <h3 className="text-2xl font-bold gradient-text">Aravinth</h3>
             <p className="text-slate-400 leading-relaxed">
-              Passionate developer creating modern web experiences with clean code and innovative solutions.
+              Application Developer with a passion for crafting efficient, scalable, and user-friendly solutions.
             </p>
           </motion.div>
 
@@ -55,7 +55,7 @@ const Footer = () => {
           >
             <h4 className="text-lg font-semibold text-slate-200 mb-4">Get In Touch</h4>
             <div className="space-y-3">
-              <p className="text-slate-400">Ready to work together?</p>
+              <p className="text-slate-400">Interested in collaborating or hiring?</p>
               <a
                 href="#contact"
                 className="inline-block text-purple-400 hover:text-purple-300 transition-colors duration-200"
@@ -65,7 +65,7 @@ const Footer = () => {
 
               <div className="flex space-x-3 pt-2">
                 <a
-                  href="https://github.com/Aswini1008"
+                  href="https://github.com/aravinthbalu15"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-2 bg-slate-800 hover:bg-slate-700 rounded-lg transition-colors duration-200"
@@ -73,7 +73,7 @@ const Footer = () => {
                   <Github className="w-5 h-5 text-slate-400 hover:text-purple-400" />
                 </a>
                 <a
-                  href="https://www.linkedin.com/in/aswini-s-m-97292629a"
+                  href="https://www.linkedin.com/in/aravinth-kumar-858851281"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-2 bg-slate-800 hover:bg-slate-700 rounded-lg transition-colors duration-200"
@@ -81,6 +81,7 @@ const Footer = () => {
                   <Linkedin className="w-5 h-5 text-slate-400 hover:text-purple-400" />
                 </a>
               </div>
+              <p className="text-slate-500 text-sm pt-1">aravinthbalu15@gmail.com</p>
             </div>
           </motion.div>
         </div>
@@ -94,7 +95,7 @@ const Footer = () => {
           className="border-t border-slate-800 pt-8 flex flex-col md:flex-row items-center justify-between"
         >
           <p className="text-slate-400 text-sm">
-            © 2025 Aswini. Built with React & Tailwind CSS.
+            © 2025 Aravinth Kumar. Built with React js 
           </p>
 
           <motion.button

@@ -9,7 +9,7 @@ import {
 
 const About = () => {
   return (
-    <section id="about" className="py-20 bg-slate-800/50">
+    <section id="about" className="py-20 bg-slate-900/50">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -44,15 +44,9 @@ const About = () => {
               </p>
 
               {/* Stats Cards */}
-              <div className="grid grid-cols-2 gap-4 mt-8">
-                <div className="glass-effect p-4 rounded-lg text-center shadow-lg hover:shadow-xl transition-all">
-                  <div className="text-2xl font-bold gradient-text">3</div>
-                  <div className="text-slate-400">Internships Completed</div>
-                </div>
-                <div className="glass-effect p-4 rounded-lg text-center shadow-lg hover:shadow-xl transition-all">
-                  <div className="text-2xl font-bold gradient-text">10+</div>
-                  <div className="text-slate-400">Projects Built</div>
-                </div>
+              <div className="glass-effect p-4 rounded-lg text-center shadow-lg hover:shadow-xl transition-all">
+                <div className="text-2xl font-bold gradient-text">4+</div>
+                <div className="text-slate-400">Projects Built</div>
               </div>
             </motion.div>
 
@@ -69,7 +63,7 @@ const About = () => {
                 <ul className="space-y-4 text-slate-300">
                   <li className="flex items-center gap-3 hover:text-purple-300 transition-colors">
                     <GraduationCap className="w-5 h-5 text-purple-400" />
-                    Pursuing B.E in ECE – Panimalar Engineering College
+                    Pursuing B.E in CSE – Panimalar Engineering College
                   </li>
                   <li className="flex items-center gap-3 hover:text-purple-300 transition-colors">
                     <Briefcase className="w-5 h-5 text-purple-400" />
@@ -77,7 +71,7 @@ const About = () => {
                   </li>
                   <li className="flex items-center gap-3 hover:text-purple-300 transition-colors">
                     <Laptop2 className="w-5 h-5 text-purple-400" />
-                    Skilled in React JS, Java, Firebase, GitHub workflows
+                    Skilled in React JS, Java, GitHub workflows
                   </li>
                   <li className="flex items-center gap-3 hover:text-purple-300 transition-colors">
                     <Code2 className="w-5 h-5 text-purple-400" />

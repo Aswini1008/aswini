@@ -5,20 +5,19 @@ const Skills = () => {
   const skillCategories = [
     {
       title: "Programming Languages",
-      skills: ["Java", "Python", "C", "JavaScript"],
+      skills: ["Java", "C", "JavaScript"],
     },
     {
       title: "Web Technologies",
-      skills: ["HTML5", "CSS3", "React JS", "Tailwind CSS", "Bootstrap"],
-    },
-    {
+      skills: ["HTML5", "CSS3", "React JS", , "Bootstrap"],
+    },    {
       title: "Backend & Database",
-      skills: ["Node.js", "MySQL", "REST APIs"],
+      skills: ["Node.js", "Express.js", "MongoDB", ],
     },
     {
       title: "Tools & Platforms",
-      skills: ["Git", "GitHub", "Figma", "VS Code"],
-    }
+      skills: ["Git", "GitHub", "Netlify ","Cloudinary ", "VS Code"],
+    },
   ];
 
   const containerVariants = {
