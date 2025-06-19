@@ -29,14 +29,7 @@ const Projects = () => {
       demoUrl: "https://weather-insights.netlify.app",
       codeUrl: "https://github.com/yourusername/weather-dashboard"
     },
-    {
-      title: "Social Media Analytics",
-      description: "Trends & engagement visualization platform with real-time updates and graphs.",
-      technologies: ["React", "Java", "PostgreSQL", "Redis", "Recharts"],
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
-      demoUrl: "https://socialmetrics.vercel.app",
-      codeUrl: "https://github.com/yourusername/social-media-analytics"
-    }
+  
   ];
 
   return (

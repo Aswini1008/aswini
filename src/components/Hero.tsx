@@ -94,23 +94,23 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
-         {/* Primary Button - Download Resume */}
-<Button
-  size="lg"
-  className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 text-lg shadow-lg"
->
-  Download Resume
-</Button>
+          {/* Resume Download Button */}
+          <a
+            href="/Aravinth_Kumar_Resume.pdf"
+            download
+            className="bg-purple-600 hover:bg-purple-700 text-white px-8 py-4 text-lg shadow-lg rounded-lg transition-all text-center"
+          >
+            Download Resume
+          </a>
 
-{/* Secondary Button - Contact Me */}
-<Button
-  size="lg"
-  className="bg-white border-2 border-purple-500 text-purple-600 hover:bg-purple-100 px-8 py-4 text-lg flex items-center gap-2 transition-all shadow-md"
->
-  <Mail className="w-5 h-5" />
-  <a href="#contact">Contact Me</a>
-</Button>
-
+          {/* Contact Me Button */}
+          <Button
+            size="lg"
+            className="bg-white border-2 border-purple-500 text-purple-600 hover:bg-purple-100 px-8 py-4 text-lg flex items-center gap-2 transition-all shadow-md"
+          >
+            <Mail className="w-5 h-5" />
+            <a href="#contact">Contact Me</a>
+          </Button>
         </motion.div>
 
         {/* Scroll Down Arrow */}
