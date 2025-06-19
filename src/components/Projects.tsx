@@ -6,6 +6,15 @@ import { Github } from 'lucide-react';
 const Projects = () => {
   const projects = [
     {
+      title: "Church Website – Live Web Application",
+      description:
+        "Built a responsive church website with gallery, announcements, and admin panel. Integrated Cloudinary for media handling and MongoDB for data storage.",
+      technologies: ["React.js", "Bootstrap", "Node.js", "Express.js", "MongoDB"],
+      image: "https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf?auto=format&fit=crop&w=800&q=80",
+      demoUrl: "https://cosmic-squirrel-a9efa8.netlify.app/",
+      codeUrl: "https://github.com/aravinthbalu15/panchu"
+    },
+    {
       title: "E-Commerce Platform",
       description: "Full-stack solution with authentication, product management, cart, and Stripe integration.",
       technologies: ["React", "Node.js", "MongoDB", "Stripe", "Tailwind CSS"],
@@ -28,8 +37,7 @@ const Projects = () => {
       image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?auto=format&fit=crop&w=800&q=80",
       demoUrl: "https://weather-insights.netlify.app",
       codeUrl: "https://github.com/yourusername/weather-dashboard"
-    },
-  
+    }
   ];
 
   return (
@@ -91,7 +99,7 @@ const Projects = () => {
                 </div>
 
                 <div className="flex gap-3">
-                  {project.demoUrl !== "#" && (
+                  {project.demoUrl && (
                     <Button
                       size="sm"
                       className="bg-purple-600 hover:bg-purple-700 text-white flex-1"
@@ -100,13 +108,12 @@ const Projects = () => {
                         href={project.demoUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        aria-label={`Live demo of ${project.title}`}
                       >
                         Live Demo
                       </a>
                     </Button>
                   )}
-                  {project.codeUrl !== "#" && (
+                  {project.codeUrl && (
                     <Button
                       variant="outline"
                       size="sm"
@@ -116,7 +123,6 @@ const Projects = () => {
                         href={project.codeUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        aria-label={`Source code of ${project.title} on GitHub`}
                         className="flex items-center"
                       >
                         <Github className="w-4 h-4 mr-1" />
