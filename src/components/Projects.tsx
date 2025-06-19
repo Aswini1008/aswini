@@ -10,7 +10,7 @@ const Projects = () => {
       description:
         "Built a responsive church website with gallery, announcements, and admin panel. Integrated Cloudinary for media handling and MongoDB for data storage.",
       technologies: ["React.js", "Bootstrap", "Node.js", "Express.js", "MongoDB"],
-      image: "https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf?auto=format&fit=crop&w=800&q=80",
+      image: "/images/church-screenshot.jpg", // ✅ Use local image
       demoUrl: "https://cosmic-squirrel-a9efa8.netlify.app/",
       codeUrl: "https://github.com/aravinthbalu15/panchu"
     },
