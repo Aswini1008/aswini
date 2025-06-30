@@ -1,4 +1,3 @@
-// src/components/Contact.tsx
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
@@ -14,7 +13,8 @@ const Contact = () => {
   const [errors, setErrors] = useState({ name: '', email: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const isValidEmail = (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  const isValidEmail = (email: string) =>
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -26,7 +26,7 @@ const Contact = () => {
 
     const { name, email, message } = formData;
 
-    const newErrors: typeof errors = {
+    const newErrors = {
       name: name ? '' : 'Name is required',
       email: email ? (isValidEmail(email) ? '' : 'Enter a valid email') : 'Email is required',
       message: message ? '' : 'Message is required',
@@ -54,82 +54,65 @@ const Contact = () => {
         });
         setFormData({ name: '', email: '', message: '' });
       } else {
-        toast({
-          title: 'Error!',
-          description: 'Something went wrong. Please try again later.',
-        });
+        toast({ title: 'Error!', description: 'Something went wrong. Try again later.' });
       }
     } catch (error) {
-      toast({
-        title: 'Submission failed',
-        description: 'Network issue or something went wrong.',
-      });
+      toast({ title: 'Submission failed', description: 'Network issue or server error.' });
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <section id="contact" className="py-20 overflow-x-hidden">
-      <div className="max-w-5xl mx-auto px-4 md:px-8">
+    <section id="contact" className="py-20 bg-slate-900/50">
+      <div className="section-container max-w-5xl mx-auto px-4 sm:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold mb-4 gradient-text">Contact Me</h2>
+          <h2 className="text-4xl font-bold gradient-text mb-4">Contact Me</h2>
           <p className="text-lg text-slate-400">Let’s connect! Send me a message below.</p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-10">
           {/* Contact Form */}
           <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              <label htmlFor="name" className="text-sm text-slate-300">Name</label>
-              <Input
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                className="bg-slate-800 text-white border-slate-600"
-                placeholder="Your name"
-              />
-              {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
-            </div>
-
-            <div>
-              <label htmlFor="email" className="text-sm text-slate-300">Email</label>
-              <Input
-                id="email"
-                name="email"
-                type="email"
-                value={formData.email}
-                onChange={handleChange}
-                className="bg-slate-800 text-white border-slate-600"
-                placeholder="Your email"
-              />
-              {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
-            </div>
-
-            <div>
-              <label htmlFor="message" className="text-sm text-slate-300">Message</label>
-              <Textarea
-                id="message"
-                name="message"
-                rows={5}
-                value={formData.message}
-                onChange={handleChange}
-                className="bg-slate-800 text-white border-slate-600"
-                placeholder="Your message"
-              />
-              {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
-            </div>
+            {['name', 'email', 'message'].map((field) => (
+              <div key={field}>
+                <label htmlFor={field} className="text-sm text-slate-300 capitalize">{field}</label>
+                {field !== 'message' ? (
+                  <Input
+                    id={field}
+                    name={field}
+                    type={field === 'email' ? 'email' : 'text'}
+                    value={formData[field]}
+                    onChange={handleChange}
+                    placeholder={`Your ${field}`}
+                    className="bg-slate-800 text-white border-slate-600"
+                  />
+                ) : (
+                  <Textarea
+                    id={field}
+                    name={field}
+                    rows={5}
+                    value={formData[field]}
+                    onChange={handleChange}
+                    placeholder="Your message"
+                    className="bg-slate-800 text-white border-slate-600"
+                  />
+                )}
+                {errors[field] && (
+                  <p className="text-red-500 text-sm mt-1">{errors[field]}</p>
+                )}
+              </div>
+            ))}
 
             <Button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-purple-600 hover:bg-purple-700 text-white py-3 text-lg"
+              className="w-full bg-purple-600 hover:bg-purple-700 text-white text-lg py-3"
             >
               {isSubmitting ? 'Sending...' : 'Send Message'}
             </Button>
@@ -140,27 +123,27 @@ const Contact = () => {
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="bg-slate-800 rounded-2xl p-8 space-y-6 border border-slate-600"
+            className="glass-effect p-8 rounded-xl border border-slate-600 shadow-lg hover:shadow-pink-700/30 space-y-6"
           >
             <h3 className="text-2xl font-semibold text-white">Let’s Collaborate</h3>
-            <p className="text-slate-400">Looking for a developer, collaborator, or just want to connect?</p>
+            <p className="text-slate-400">I'm Aswini – a passionate developer. Looking for exciting collaborations or just want to say hi?</p>
 
-            <div className="flex items-center space-x-4">
+            <div className="space-y-4">
               <a
-                href="https://github.com/aravinthbalu15"
+                href="https://github.com/Aswini1008"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center space-x-2 text-slate-300 hover:text-white"
+                className="flex items-center gap-2 text-slate-300 hover:text-white transition"
               >
                 <Github className="w-5 h-5" />
                 <span>GitHub</span>
               </a>
 
               <a
-                href="https://www.linkedin.com/in/aravinth-kumar-858851281"
+                href="https://www.linkedin.com/in/aswini-sm-97292629a"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center space-x-2 text-slate-300 hover:text-white"
+                className="flex items-center gap-2 text-slate-300 hover:text-white transition"
               >
                 <Linkedin className="w-5 h-5" />
                 <span>LinkedIn</span>
