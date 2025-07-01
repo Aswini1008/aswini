@@ -10,47 +10,48 @@ import {
 
 const About = () => {
   return (
-    <section id="about" className="py-20 bg-gradient-to-b from-black via-pink-950/30 to-slate-900 text-white">
+    <section
+      id="about"
+      className="py-20 bg-gradient-to-b from-black via-pink-950/20 to-slate-900 text-white"
+    >
       <div className="section-container px-4 max-w-6xl mx-auto">
-        {/* Title */}
+        {/* Section Title */}
         <motion.h2
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-4xl font-bold text-center mb-16 glow-hover"
+          className="text-4xl font-bold text-center mb-16"
         >
-          <span className="text-pink-400">About Me</span>
+          <span className="gradient-text">About Me</span>
         </motion.h2>
 
-        {/* Layout Wrapper */}
-        <div className="flex flex-col lg:flex-row gap-12 items-start">
-          {/* LEFT COLUMN – Bio & Stats */}
+        {/* Flex Layout */}
+        <div className="flex flex-col lg:flex-row items-start gap-12">
+          {/* LEFT: Bio & Metrics */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.7 }}
             viewport={{ once: true }}
-            className="flex-1 space-y-6"
+            className="flex-1"
           >
-            <p className="text-lg text-pink-100 leading-relaxed">
-              I'm an enthusiastic full-stack development intern passionate about creating clean and scalable web applications. I love turning creative ideas into interactive digital products.
+            <p className="text-lg text-pink-100 mb-5 leading-relaxed">
+              I'm a passionate Full-Stack Developer skilled in crafting scalable, modern web apps.
+              With hands-on internship experience and real-world projects, I enjoy building things that make a difference.
             </p>
 
-            <p className="text-lg text-pink-100 leading-relaxed">
-              I’m gaining real-world experience via internships and collaborative projects. My core stack includes React for UI, Java for backend logic, and Git/GitHub for version control.
+            <p className="text-lg text-pink-100 mb-8 leading-relaxed">
+              I specialize in React, Java, and RESTful services. Clean UI, reusable components, and smooth user experience are at the heart of my work.
             </p>
 
-            {/* Cards Grid */}
-            <div className="grid grid-cols-2 gap-6 mt-6">
-              {/* Projects */}
-              <div className="bg-slate-800/50 p-5 rounded-xl text-center hover:shadow-xl transition">
-                <div className="text-3xl font-bold text-pink-400">4+</div>
+            <div className="grid grid-cols-2 gap-6">
+              <div className="bg-slate-800/60 p-6 rounded-xl text-center shadow hover:shadow-xl transition">
+                <h3 className="text-3xl font-bold text-pink-400">4+</h3>
                 <p className="text-sm mt-1 text-pink-100">Projects Built</p>
               </div>
 
-              {/* Internships */}
-              <div className="bg-slate-800/50 p-5 rounded-xl text-center hover:shadow-xl transition">
+              <div className="bg-slate-800/60 p-6 rounded-xl text-center shadow hover:shadow-xl transition">
                 <div className="flex justify-center mb-2">
                   <Award className="w-6 h-6 text-pink-300" />
                 </div>
@@ -62,16 +63,18 @@ const About = () => {
             </div>
           </motion.div>
 
-          {/* RIGHT COLUMN – Quick Facts */}
+          {/* RIGHT: Quick Facts */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.7 }}
             viewport={{ once: true }}
             className="w-full lg:w-[40%]"
           >
             <div className="bg-slate-800/40 rounded-2xl p-6 shadow-md hover:shadow-2xl transition">
-              <h3 className="text-xl font-semibold mb-4 text-pink-300">Quick Facts</h3>
+              <h3 className="text-xl font-semibold mb-4 text-pink-300">
+                Quick Facts
+              </h3>
               <ul className="space-y-5 text-pink-100">
                 <li className="flex items-center gap-3">
                   <GraduationCap className="w-5 h-5 text-pink-400" />
@@ -79,15 +82,15 @@ const About = () => {
                 </li>
                 <li className="flex items-center gap-3">
                   <Briefcase className="w-5 h-5 text-pink-400" />
-                  Full Stack & Software Development Internships
+                  Interned at ICF, Test Yatra, and BSNL
                 </li>
                 <li className="flex items-center gap-3">
                   <Laptop2 className="w-5 h-5 text-pink-400" />
-                  React, Java, GitHub, Tailwind Enthusiast
+                  Tech Stack: React, Java, Git, MongoDB, Tailwind CSS
                 </li>
                 <li className="flex items-center gap-3">
                   <Code2 className="w-5 h-5 text-pink-400" />
-                  Passionate about Real-world Problem Solving
+                  Loves Solving Real-world Problems with Code
                 </li>
               </ul>
             </div>

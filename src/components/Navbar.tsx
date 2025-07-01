@@ -1,24 +1,45 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
 
-  const navLinks = [
+  const navLinks = useMemo(() => [
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
-    { name: 'Projects', href: '#projects' },
+    { name: 'Experience', href: '#experience' },
     { name: 'Skills', href: '#skills' },
+    { name: 'Projects', href: '#projects' },
     { name: 'Contact', href: '#contact' },
-  ];
+  ], []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPos = window.scrollY + window.innerHeight / 3;
+
+      for (let i = navLinks.length - 1; i >= 0; i--) {
+        const section = document.querySelector(navLinks[i].href) as HTMLElement | null;
+        if (section && section.offsetTop <= scrollPos) {
+          setActiveSection(navLinks[i].href.substring(1));
+          break;
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // initial check
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [navLinks]);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-slate-900/80 backdrop-blur-md shadow-sm">
-      <div className="section-container flex items-center justify-between py-4">
+    <header className="fixed top-0 left-0 w-full z-50 bg-slate-800/100 backdrop-blur-md shadow-md transition-colors duration-300">
+      <div className="max-w-6xl mx-auto flex items-center justify-between py-4 px-6 sm:px-10">
         {/* Logo */}
-        <a href="#" className="text-2xl font-bold gradient-text">
-          Aravinth<span className="text-purple-400">.</span>
+        <a href="#home" className="text-2xl font-bold gradient-text">
+          Aswini<span className="text-pink-400">.</span>
         </a>
 
         {/* Desktop Navigation */}
@@ -27,7 +48,11 @@ const Navbar = () => {
             <a
               key={link.name}
               href={link.href}
-              className="hover:text-purple-400 transition-colors"
+              className={`transition-colors hover:text-pink-400 ${
+                activeSection === link.href.substring(1)
+                  ? 'text-pink-400 font-semibold'
+                  : ''
+              }`}
             >
               {link.name}
             </a>
@@ -50,7 +75,7 @@ const Navbar = () => {
         {isOpen && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
+            animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
             className="md:hidden bg-slate-900 border-t border-slate-700"
@@ -61,7 +86,11 @@ const Navbar = () => {
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="hover:text-purple-400 transition-colors"
+                  className={`hover:text-pink-400 transition-colors ${
+                    activeSection === link.href.substring(1)
+                      ? 'text-pink-400 font-semibold'
+                      : ''
+                  }`}
                 >
                   {link.name}
                 </a>

@@ -8,106 +8,97 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-slate-900 border-t border-slate-800">
-      <div className="section-container py-12">
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
-          {/* Brand Section */}
+    <footer className="bg-slate-900 text-slate-300 border-t border-slate-800">
+      <div className="max-w-6xl mx-auto px-4 sm:px-8 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
+          {/* Brand Info */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="space-y-4"
           >
-            <h3 className="text-2xl font-bold gradient-text">Aravinth Kumar</h3>
-            <p className="text-slate-400 leading-relaxed">
-              Application Developer with a passion for crafting efficient, scalable, and user-friendly solutions.
+            <h3 className="text-2xl font-bold gradient-text mb-4">Aswini</h3>
+            <p className="text-slate-400">
+              Passionate full-stack developer focused on crafting clean UI and scalable backend solutions. Let's build something great!
             </p>
           </motion.div>
 
-          {/* Quick Links */}
+          {/* Navigation Links */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
             viewport={{ once: true }}
           >
-            <h4 className="text-lg font-semibold text-slate-200 mb-4">Quick Links</h4>
-            <nav className="space-y-2">
+            <h4 className="text-lg font-semibold mb-4 text-slate-200">Quick Links</h4>
+            <ul className="space-y-2">
               {['Home', 'About', 'Experience', 'Skills', 'Projects', 'Contact'].map((item) => (
-                <a
-                  key={item}
-                  href={`#${item.toLowerCase()}`}
-                  className="block text-slate-400 hover:text-purple-400 transition-colors duration-200"
-                >
-                  {item}
-                </a>
+                <li key={item}>
+                  <a
+                    href={`#${item.toLowerCase()}`}
+                    className="hover:text-pink-400 transition-colors duration-200 block"
+                  >
+                    {item}
+                  </a>
+                </li>
               ))}
-            </nav>
+            </ul>
           </motion.div>
 
-          {/* Contact Info */}
+          {/* Contact Info & Socials */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <h4 className="text-lg font-semibold text-slate-200 mb-4">Get In Touch</h4>
-            <div className="space-y-3">
-              <p className="text-slate-400">Interested in collaborating or hiring?</p>
+            <h4 className="text-lg font-semibold mb-4 text-slate-200">Let's Connect</h4>
+            <p className="text-slate-400 mb-2">
+              Open to internships, collabs, and freelance work.
+            </p>
+            <a
+              href="mailto:smaswini006@gmail.com"
+              className="text-pink-400 hover:underline block mb-4"
+            >
+              smaswini006@gmail.com
+            </a>
+            <div className="flex gap-4">
               <a
-                href="#contact"
-                className="inline-block text-purple-400 hover:text-purple-300 transition-colors duration-200"
+                href="https://github.com/aravinthbalu15"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-slate-800 p-2 rounded-lg hover:bg-pink-600/20 transition"
               >
-                Send me a message →
+                <Github className="w-5 h-5 text-slate-300 hover:text-pink-400" />
               </a>
-
-              <div className="flex space-x-3 pt-2">
-                <a
-                  href="https://github.com/aravinthbalu15"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 bg-slate-800 hover:bg-slate-700 rounded-lg transition-colors duration-200"
-                >
-                  <Github className="w-5 h-5 text-slate-400 hover:text-purple-400" />
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/aravinth-kumar-858851281"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="p-2 bg-slate-800 hover:bg-slate-700 rounded-lg transition-colors duration-200"
-                >
-                  <Linkedin className="w-5 h-5 text-slate-400 hover:text-purple-400" />
-                </a>
-              </div>
-              <p className="text-slate-500 text-sm pt-1">aravinthbalu15@gmail.com</p>
+              <a
+                href="https://www.linkedin.com/in/aravinth-kumar-858851281"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-slate-800 p-2 rounded-lg hover:bg-pink-600/20 transition"
+              >
+                <Linkedin className="w-5 h-5 text-slate-300 hover:text-pink-400" />
+              </a>
             </div>
           </motion.div>
         </div>
 
-        {/* Bottom Section */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="border-t border-slate-800 pt-8 flex flex-col md:flex-row items-center justify-between"
-        >
-          <p className="text-slate-400 text-sm">
-            © 2025 Aravinth Kumar. Built with React js 
+        {/* Bottom Footer */}
+        <div className="flex flex-col sm:flex-row justify-between items-center border-t border-slate-800 pt-6 gap-4">
+          <p className="text-sm text-slate-400 text-center sm:text-left">
+            © 2025 Aswini. Designed & built with 💖 using React + Tailwind CSS.
           </p>
-
           <motion.button
             onClick={scrollToTop}
-            whileHover={{ scale: 1.05, y: -2 }}
+            whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="mt-4 md:mt-0 flex items-center space-x-2 bg-purple-600/20 hover:bg-purple-600/30 px-4 py-2 rounded-lg transition-colors duration-200 border border-purple-500/30"
+            className="flex items-center gap-2 px-4 py-2 text-sm text-pink-400 border border-pink-500 rounded-md hover:bg-pink-600/10 transition"
           >
-            <ArrowUp className="w-4 h-4 text-purple-400" />
-            <span className="text-purple-400 text-sm">Back to Top</span>
+            <ArrowUp className="w-4 h-4" />
+            Back to Top
           </motion.button>
-        </motion.div>
+        </div>
       </div>
     </footer>
   );

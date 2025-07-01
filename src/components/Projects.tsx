@@ -6,38 +6,24 @@ import { Github } from 'lucide-react';
 const Projects = () => {
   const projects = [
     {
+      title: "ISAI – Musical Web App",
+      description:
+        "Feature-rich music player with admin/user roles. Built with Firebase Auth, Cloudinary uploads, responsive Tailwind UI, and real-time streaming.",
+      technologies: ["React.js", "Tailwind CSS", "Firebase", "Cloudinary"],
+      image: "/images/music-player.png",
+      demoUrl: "https://isai-player.netlify.app",
+      codeUrl: "https://github.com/Aswini1008/ISAI-Music-App",
+    },
+    {
       title: "Church Website – Live Web Application",
       description:
-        "Built a responsive church website with gallery, announcements, and admin panel. Integrated Cloudinary for media handling and MongoDB for data storage.",
-      technologies: ["React.js", "Bootstrap", "Node.js", "Express.js", "MongoDB"],
-      image: "/images/church-screenshot.jpg", // ✅ Use local image
+        "Responsive church portal with event announcements, gallery, and admin panel. Media handled via Cloudinary, backend with Node & MongoDB.",
+      technologies: ["React.js", "Bootstrap", "Node.js", "MongoDB"],
+      image: "/images/church-screenshot.jpg",
       demoUrl: "https://cosmic-squirrel-a9efa8.netlify.app/",
       codeUrl: "https://github.com/aravinthbalu15/panchu"
     },
-    {
-      title: "E-Commerce Platform",
-      description: "Full-stack solution with authentication, product management, cart, and Stripe integration.",
-      technologies: ["React", "Node.js", "MongoDB", "Stripe", "Tailwind CSS"],
-      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80",
-      demoUrl: "https://your-ecommerce-demo.netlify.app",
-      codeUrl: "https://github.com/yourusername/ecommerce-platform"
-    },
-    {
-      title: "Task Management System",
-      description: "Project management tool with real-time updates, drag-and-drop tasks, and team analytics.",
-      technologies: ["React", "Spring Boot", "MySQL", "WebSocket", "Bootstrap"],
-      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&w=800&q=80",
-      demoUrl: "https://your-task-manager.vercel.app",
-      codeUrl: "https://github.com/yourusername/task-manager"
-    },
-    {
-      title: "Weather Analytics Dashboard",
-      description: "Real-time weather forecast dashboard using D3, Flask, and location APIs.",
-      technologies: ["React", "D3.js", "Python", "Flask", "Chart.js"],
-      image: "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?auto=format&fit=crop&w=800&q=80",
-      demoUrl: "https://weather-insights.netlify.app",
-      codeUrl: "https://github.com/yourusername/weather-dashboard"
-    }
+    // You can include more real projects here…
   ];
 
   return (
@@ -50,11 +36,9 @@ const Projects = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold mb-4 gradient-text">
-            Featured Projects
-          </h2>
-          <p className="text-xl text-slate-400 max-w-2xl mx-auto">
-            A curated list of my top projects showcasing skills in full-stack development, APIs, and UI design.
+          <h2 className="text-4xl font-bold mb-4 gradient-text">Featured Projects</h2>
+          <p className="text-xl text-slate-300 max-w-2xl mx-auto">
+            Explore some of the impactful full-stack applications I've developed.
           </p>
         </motion.div>
 
@@ -67,14 +51,14 @@ const Projects = () => {
               transition={{ duration: 0.5, delay: index * 0.15 }}
               viewport={{ once: true }}
               whileHover={{ y: -6 }}
-              className="glass-effect rounded-xl overflow-hidden group transition-all duration-300 border border-slate-700 hover:border-purple-500 hover:shadow-lg"
+              className="glass-effect rounded-xl overflow-hidden group transition-all duration-300 border border-slate-700 hover:border-pink-500 hover:shadow-lg"
             >
               <div className="relative overflow-hidden">
                 <img
                   loading="lazy"
                   src={project.image}
                   alt={`${project.title} Screenshot`}
-                  className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent opacity-60" />
               </div>
@@ -91,7 +75,7 @@ const Projects = () => {
                   {project.technologies.map((tech, techIndex) => (
                     <span
                       key={techIndex}
-                      className="px-3 py-1 text-xs font-medium bg-slate-700 text-purple-300 rounded-full border border-purple-400/30"
+                      className="px-3 py-1 text-xs font-medium bg-slate-700 text-pink-300 rounded-full border border-pink-400/30"
                     >
                       {tech}
                     </span>
@@ -102,7 +86,7 @@ const Projects = () => {
                   {project.demoUrl && (
                     <Button
                       size="sm"
-                      className="bg-purple-600 hover:bg-purple-700 text-white flex-1"
+                      className="bg-pink-600 hover:bg-pink-700 text-white flex-1"
                     >
                       <a
                         href={project.demoUrl}
@@ -117,7 +101,7 @@ const Projects = () => {
                     <Button
                       variant="outline"
                       size="sm"
-                      className="bg-white text-slate-900 border border-slate-300 hover:bg-[#f3e8ff] transition-colors duration-200"
+                      className="bg-white text-slate-900 border border-slate-300 hover:bg-pink-50 transition-colors duration-200"
                     >
                       <a
                         href={project.codeUrl}

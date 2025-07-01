@@ -8,7 +8,7 @@ const Hero = () => {
   const [isTyping, setIsTyping] = useState(true);
   const [textIndex, setTextIndex] = useState(0);
 
-  const texts = ["Web Developer", "Java Developer", "Problem Solver"];
+  const texts = ['Web Developer', 'Java Developer', 'Problem Solver'];
 
   useEffect(() => {
     const typeEffect = () => {
@@ -35,99 +35,81 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-black"
+      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-950 via-black to-slate-900 text-white px-4 md:px-0 relative"
     >
-      {/* Interactive Black Gradient Background */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-black via-zinc-900/80 to-gray-950" />
-
-      {/* Floating Animated Particles */}
-      <div className="absolute inset-0 pointer-events-none">
-        {[...Array(25)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1.5 h-1.5 bg-pink-400/40 rounded-full blur-[1px]"
-            initial={{
-              x: Math.random() * window.innerWidth,
-              y: Math.random() * window.innerHeight,
-            }}
-            animate={{
-              y: [0, -40, 0],
-              opacity: [0.2, 0.8, 0.2],
-            }}
-            transition={{
-              duration: 4 + Math.random() * 2,
-              repeat: Infinity,
-              delay: Math.random() * 2,
-            }}
-          />
-        ))}
-      </div>
-
-      {/* Content */}
-      <div className="section-container relative z-10 text-center max-w-4xl mt-[60px] px-4">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
+      <div className="max-w-6xl w-full text-center z-10 py-20 md:py-32">
+        <motion.h1
+          initial={{ opacity: 0, y: -40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
+          className="text-4xl md:text-6xl font-bold leading-tight tracking-tight"
         >
-          <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 drop-shadow-sm">
-            Hi, I'm <span className="text-pink-500">Aswini</span>
-          </h1>
+          Hi, I'm <span className="text-pink-500">Aswini</span>
+        </motion.h1>
 
-          <div className="text-2xl md:text-3xl text-pink-100 h-16 mb-4 flex justify-center items-center">
-            <span className="mr-2">I’m a</span>
-            <span className="text-pink-300 min-w-[220px] font-semibold text-left">
-              {currentText}
-              <span className="animate-blink">|</span>
-            </span>
-          </div>
-
-          <p className="text-lg md:text-xl text-pink-200 leading-relaxed mb-10 max-w-2xl mx-auto">
-            Passionate developer crafting seamless web experiences using React, Java, and the latest technologies. Always building, always improving.
-          </p>
-        </motion.div>
-
-        {/* Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+          transition={{ duration: 1, delay: 0.5 }}
+          className="mt-4 text-2xl md:text-3xl text-pink-300"
         >
-          {/* Resume Button */}
+          <span>I’m a </span>
+          <span className="font-semibold">{currentText}</span>
+          <span className="animate-blink ml-1">|</span>
+        </motion.div>
+
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.8 }}
+          className="mt-6 text-lg md:text-xl text-slate-300 max-w-2xl mx-auto"
+        >
+          Full-stack developer with a knack for building scalable, efficient, and user-friendly web applications using React, Java, and modern technologies.
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2, delay: 1.2 }}
+          className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
+        >
           <a
             href="/Aswini_Resume.pdf"
             download
-            className="bg-pink-600 hover:bg-pink-500 text-white px-8 py-4 text-lg shadow-lg rounded-lg transition-all text-center font-semibold"
+            className="bg-pink-600 hover:bg-pink-500 text-white px-6 py-3 rounded-lg text-lg font-medium shadow-md"
           >
             Download Resume
           </a>
 
-          {/* About Me Button */}
           <Button
             size="lg"
-            className="bg-white border-2 border-pink-500 text-pink-600 hover:bg-pink-100 px-8 py-4 text-lg flex items-center gap-2 transition-all shadow-md font-semibold"
+            className="bg-white text-pink-600 border-2 border-pink-500 hover:bg-pink-100 px-6 py-3 text-lg font-medium"
           >
-            <User className="w-5 h-5" />
+            <User className="w-5 h-5 mr-2" />
             <a href="#about">About Me</a>
           </Button>
         </motion.div>
 
-        {/* Scroll Down Arrow */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.2 }}
+          transition={{ duration: 1.5, delay: 1.8 }}
           className="mt-16"
         >
           <a
             href="#about"
-            className="inline-flex flex-col items-center text-pink-200 hover:text-white transition-colors"
+            className="inline-flex flex-col items-center text-pink-300 hover:text-white"
           >
-            <span className="text-sm mb-2">Scroll to explore</span>
+            <span className="text-sm mb-1">Scroll to explore</span>
             <ArrowDown className="w-6 h-6 animate-bounce" />
           </a>
         </motion.div>
+      </div>
+
+      {/* Decorative Circles */}
+      <div className="absolute inset-0 -z-10 overflow-hidden">
+        <div className="absolute top-1/4 left-1/2 transform -translate-x-1/2 bg-pink-500/10 rounded-full w-[400px] h-[400px] blur-3xl" />
+        <div className="absolute bottom-1/3 right-1/3 transform bg-purple-600/10 rounded-full w-[300px] h-[300px] blur-2xl" />
       </div>
     </section>
   );

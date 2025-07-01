@@ -49,53 +49,68 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="py-24 px-4 md:px-10 bg-gradient-to-b from-slate-900 via-black to-pink-950 text-white">
-      {/* Heading */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-        className="text-center mb-20"
-      >
-        <h2 className="text-5xl font-bold inline-flex items-center justify-center gap-3 text-pink-500">
-          Experience
-        </h2>
-      </motion.div>
+    <section
+      id="experience"
+      className="py-20 bg-gradient-to-b from-slate-900 via-pink-950/100 to-black text-white"
+    >
+      <div className="section-container max-w-6xl mx-auto px-4">
+        {/* Section Title */}
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-4xl font-bold text-center mb-16"
+        >
+          <span className="gradient-text flex items-center justify-center gap-2">
+            
+            Experience
+          </span>
+        </motion.h2>
 
-      {/* Experience Cards */}
-      <div className="max-w-5xl mx-auto space-y-10">
-        {experiences.map((exp, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: index * 0.2 }}
-            viewport={{ once: true }}
-            className="bg-slate-800/60 border border-pink-900/40 rounded-2xl p-6 shadow-lg hover:shadow-pink-800/40 transition-all"
-          >
-            <div className="mb-2">
-              <h3 className="text-xl font-semibold text-pink-400">{exp.company}</h3>
-              <span className="text-sm text-pink-200">{exp.period}</span>
-            </div>
+        {/* Timeline Layout */}
+        <div className="relative border-l border-pink-500/20 pl-6 space-y-12">
+          {experiences.map((exp, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: i * 0.15 }}
+              viewport={{ once: true }}
+              className="relative bg-slate-800/40 border border-pink-500/10 rounded-xl p-6 shadow-md hover:shadow-pink-600/30 transition-all"
+            >
+              {/* Timeline Dot */}
+              <div className="absolute -left-[38px] top-4 w-4 h-4 bg-pink-500 rounded-full border-2 border-white" />
 
-            <h4 className="text-lg font-medium text-white mb-2">{exp.position}</h4>
-            <p className="text-pink-100 text-sm leading-relaxed mb-4">
-              {exp.description}
-            </p>
+              {/* Internship Info */}
+              <div className="mb-2">
+                <h3 className="text-xl font-semibold text-pink-400">
+                  {exp.company}
+                </h3>
+                <span className="text-sm text-pink-200">{exp.period}</span>
+              </div>
 
-            <div className="flex flex-wrap gap-2 mt-2">
-              {exp.technologies.map((tech, i) => (
-                <span
-                  key={i}
-                  className="text-xs bg-pink-900/40 text-pink-300 px-3 py-1 rounded-full border border-pink-600/20"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </motion.div>
-        ))}
+              <h4 className="text-lg font-medium text-white mb-2">
+                {exp.position}
+              </h4>
+              <p className="text-sm text-pink-100 leading-relaxed mb-4">
+                {exp.description}
+              </p>
+
+              {/* Tech Tags */}
+              <div className="flex flex-wrap gap-2 mt-2">
+                {exp.technologies.map((tech, idx) => (
+                  <span
+                    key={idx}
+                    className="text-xs bg-slate-900 text-pink-300 px-3 py-1 rounded-full border border-pink-500/20 hover:bg-pink-700/20 transition"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
