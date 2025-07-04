@@ -7,18 +7,18 @@ const Education = () => {
     {
       degree: 'B.E. Electronics & Communication Engineering',
       college: 'Panimalar Engineering College, Chennai',
-      year: '2021 – 2025',
-      score: '7.5 CGPA',
+      year: '2023 – 2027',
+      score: '8.6 CGPA',
       desc: 'Studied embedded systems, signal processing, VLSI, and microcontrollers. Built multiple hardware-software integrated projects and completed internships in core + software domains.',
       tags: ['Embedded Systems', 'VLSI', 'Signal Processing', 'IoT', 'Java', 'DSA'],
     },
     {
       degree: 'HSC – Higher Secondary Education',
-      college: 'Velammal Matriculation Hr Sec School',
-      year: '2019 – 2021',
-      score: '91.5%',
+      college: 'Holy Infant  Matriculation Hr Sec School',
+      year: '2022 – 2023',
+      score: '88%',
       desc: 'Major in Mathematics, Physics & Computer Science. Built strong fundamentals in logic, programming and problem-solving.',
-      tags: ['Maths', 'Physics', 'Computer Science'],
+      tags: ['Maths', 'Physics', 'Chemistry'],
     },
   ];
 
