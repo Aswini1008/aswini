@@ -51,7 +51,7 @@ const Experience = () => {
   return (
     <section
       id="experience"
-      className="py-20 bg-gradient-to-b from-slate-900 via-pink-950/100 to-black text-white"
+      className="py-20 bg-gradient-to-b from-slate-800 via-slate-900 to-slate-900 text-white"
     >
       <div className="section-container max-w-6xl mx-auto px-4">
         {/* Section Title */}

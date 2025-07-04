@@ -35,7 +35,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-950 via-black to-slate-900 text-white px-4 md:px-0 relative"
+      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900  to-slate-900 text-white px-4 md:px-0 relative"
     >
       <div className="max-w-6xl w-full text-center z-10 py-20 md:py-32">
         <motion.h1
@@ -73,13 +73,15 @@ const Hero = () => {
           transition={{ duration: 1.2, delay: 1.2 }}
           className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <a
-            href="/Aswini_Resume.pdf"
-            download
-            className="bg-pink-600 hover:bg-pink-500 text-white px-6 py-3 rounded-lg text-lg font-medium shadow-md"
-          >
-            Download Resume
-          </a>
+      <a
+  href="/Aswini_SM_Resume.pdf"
+  download
+  className="bg-pink-600 hover:bg-pink-500 text-white px-6 py-3 rounded-lg text-lg font-medium shadow-md"
+>
+  Download Resume
+</a>
+
+
 
           <Button
             size="lg"

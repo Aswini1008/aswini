@@ -12,9 +12,9 @@ const About = () => {
   return (
     <section
       id="about"
-      className="py-20 bg-gradient-to-b from-black via-pink-950/20 to-slate-900 text-white"
+      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-800 via-slate-900 to-slate-900 text-white px-4 md:px-0 relative"
     >
-      <div className="section-container px-4 max-w-6xl mx-auto">
+      <div className="section-container px-4 max-w-6xl mx-auto py-20">
         {/* Section Title */}
         <motion.h2
           initial={{ opacity: 0, y: 30 }}

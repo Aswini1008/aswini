@@ -44,7 +44,7 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-24 bg-gradient-to-b from-slate-900 via-pink-950 to-black text-white">
+    <section id="projects" className="py-24 bg-gradient-to-b from-slate-800 via-slate-900 to-slate-900 text-white">
       <div className="section-container max-w-6xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
