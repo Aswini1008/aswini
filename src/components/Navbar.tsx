@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import { Link } from 'react-scroll';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -38,24 +39,33 @@ const Navbar = () => {
     <header className="fixed top-0 left-0 w-full z-50 bg-slate-800/100 backdrop-blur-md shadow-md transition-colors duration-300">
       <div className="max-w-6xl mx-auto flex items-center justify-between py-4 px-6 sm:px-10">
         {/* Logo */}
-        <a href="#home" className="text-2xl font-bold gradient-text">
+        <Link 
+          to="home" 
+          smooth={true} 
+          duration={500} 
+          className="text-2xl font-bold gradient-text cursor-pointer"
+        >
           Aswini<span className="text-pink-400">.</span>
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex gap-8 text-slate-300 font-medium">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.name}
-              href={link.href}
+              to={link.href.substring(1)}
+              smooth={true}
+              duration={500}
+              spy={true}
+              offset={-100}
               className={`transition-colors hover:text-pink-400 ${
                 activeSection === link.href.substring(1)
                   ? 'text-pink-400 font-semibold'
                   : ''
-              }`}
+              } cursor-pointer`}
             >
               {link.name}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -82,18 +92,22 @@ const Navbar = () => {
           >
             <div className="flex flex-col items-center py-4 space-y-4 text-slate-300">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.name}
-                  href={link.href}
+                  to={link.href.substring(1)}
+                  smooth={true}
+                  duration={500}
+                  spy={true}
+                  offset={-100}
                   onClick={() => setIsOpen(false)}
                   className={`hover:text-pink-400 transition-colors ${
                     activeSection === link.href.substring(1)
                       ? 'text-pink-400 font-semibold'
                       : ''
-                  }`}
+                  } cursor-pointer`}
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
             </div>
           </motion.div>

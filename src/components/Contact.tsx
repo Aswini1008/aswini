@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useInView } from 'framer-motion';
+import { useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -7,6 +9,8 @@ import { Github, Linkedin } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 const Contact = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
   const { toast } = useToast();
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [errors, setErrors] = useState({ name: '', email: '', message: '' });
@@ -61,12 +65,12 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-slate-900/60 backdrop-blur-md">
+    <section ref={ref} id="contact" className="py-20 bg-slate-900/60 backdrop-blur-md">
       <div className="section-container max-w-6xl mx-auto px-4 sm:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
           className="text-center mb-16"
         >
           <h2 className="text-4xl font-bold gradient-text mb-4">Get in Touch</h2>
@@ -76,12 +80,16 @@ const Contact = () => {
         <div className="grid lg:grid-cols-12 gap-10">
           <motion.div
             className="lg:col-span-7 space-y-6"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            initial={{ opacity: 0, x: -60 }}
+            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -60 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
           >
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+              >
                 <label htmlFor="name" className="text-sm text-slate-300">Name</label>
                 <Input
                   id="name"
@@ -92,8 +100,12 @@ const Contact = () => {
                   className="bg-slate-800 text-white border border-slate-600 focus:outline-none focus:ring-2 focus:ring-pink-500 transition-all duration-200"
                 />
                 {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
-              </div>
-              <div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                transition={{ duration: 0.6, delay: 0.7 }}
+              >
                 <label htmlFor="email" className="text-sm text-slate-300">Email</label>
                 <Input
                   id="email"
@@ -105,8 +117,12 @@ const Contact = () => {
                   className="bg-slate-800 text-white border border-slate-600 focus:outline-none focus:ring-2 focus:ring-pink-500 transition-all duration-200"
                 />
                 {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
-              </div>
-              <div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+              >
                 <label htmlFor="message" className="text-sm text-slate-300">Message</label>
                 <Textarea
                   id="message"
@@ -118,22 +134,30 @@ const Contact = () => {
                   className="bg-slate-800 text-white border border-slate-600 focus:outline-none focus:ring-2 focus:ring-pink-500 transition-all duration-200"
                 />
                 {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
-              </div>
-              <Button
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+                transition={{ duration: 0.6, delay: 0.9 }}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <Button
                 type="submit"
                 disabled={isSubmitting}
                 className="w-full bg-pink-600 hover:bg-pink-700 text-white text-lg py-3 transition-all duration-300"
               >
                 {isSubmitting ? 'Sending...' : 'Send Message'}
               </Button>
+              </motion.div>
             </form>
           </motion.div>
 
           <motion.div
             className="lg:col-span-5 p-8 bg-slate-800 rounded-xl shadow-xl border border-slate-700 space-y-6"
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            initial={{ opacity: 0, x: 60 }}
+            animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 60 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
           >
             <h3 className="text-2xl font-semibold text-white">Let’s Collaborate</h3>
             <p className="text-slate-400">
@@ -145,22 +169,26 @@ const Contact = () => {
                 smaswini006@gmail.com
               </a>
               <div className="flex gap-4">
-                <a
+                <motion.a
                   href="https://github.com/Aswini1008"
                   target="_blank"
                   rel="noopener noreferrer"
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  whileTap={{ scale: 0.9 }}
                   className="bg-slate-700 p-2 rounded-md hover:bg-pink-600/20 transition"
                 >
                   <Github className="w-5 h-5 text-white" />
-                </a>
-                <a
+                </motion.a>
+                <motion.a
                   href="https://www.linkedin.com/in/aswini-sm-97292629a"
                   target="_blank"
                   rel="noopener noreferrer"
+                  whileHover={{ scale: 1.1, rotate: -5 }}
+                  whileTap={{ scale: 0.9 }}
                   className="bg-slate-700 p-2 rounded-md hover:bg-pink-600/20 transition"
                 >
                   <Linkedin className="w-5 h-5 text-white" />
-                </a>
+                </motion.a>
               </div>
             </div>
           </motion.div>

@@ -1,5 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useInView } from 'framer-motion';
+import { useRef } from 'react';
 import {
   Code2,
   LayoutDashboard,
@@ -8,6 +10,9 @@ import {
 } from 'lucide-react';
 
 const Skills = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
   const skillCategories = [
     {
       title: 'Programming Languages',
@@ -33,16 +38,16 @@ const Skills = () => {
 
   return (
     <section
+      ref={ref}
       id="skills"
       className="py-20 bg-gradient-to-b from-slate-800 via-slate-900 to-slate-900 text-white"
     >
       <div className="max-w-6xl mx-auto px-4">
         {/* Title */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
           className="text-center mb-16"
         >
           <h2 className="text-4xl font-bold mb-4 gradient-text">Skills</h2>
@@ -56,15 +61,13 @@ const Skills = () => {
           {skillCategories.map((category, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 60, scale: 0.9 }}
+              animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 60, scale: 0.9 }}
               transition={{
-                type: 'spring',
-                damping: 20,
-                stiffness: 100,
-                delay: index * 0.2,
+                duration: 0.8,
+                delay: 0.4 + index * 0.2,
+                ease: "easeOut"
               }}
-              viewport={{ once: true }}
               whileHover={{ scale: 1.02 }}
               className="rounded-2xl bg-slate-800/40 border border-slate-700 hover:border-pink-500/50 p-6 shadow-xl transition-all duration-300"
             >
@@ -77,6 +80,13 @@ const Skills = () => {
                 {category.skills.map((skill, i) => (
                   <motion.span
                     key={i}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+                    transition={{ 
+                      duration: 0.5, 
+                      delay: 0.6 + index * 0.2 + i * 0.1,
+                      ease: "easeOut"
+                    }}
                     whileHover={{ scale: 1.05 }}
                     className="px-4 py-2 rounded-lg bg-slate-700 text-slate-100 text-sm font-medium border border-slate-600 hover:bg-pink-800/40 hover:border-pink-500 transition-all duration-300"
                   >

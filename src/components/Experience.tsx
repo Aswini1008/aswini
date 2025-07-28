@@ -1,8 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useInView } from 'framer-motion';
+import { useRef } from 'react';
 import { Briefcase } from 'lucide-react';
 
 const Experience = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
   const experiences = [
     {
       company: "Test Yatra Pvt. Ltd",
@@ -50,16 +55,16 @@ const Experience = () => {
 
   return (
     <section
+      ref={ref}
       id="experience"
       className="py-20 bg-gradient-to-b from-slate-800 via-slate-900 to-slate-900 text-white"
     >
       <div className="section-container max-w-6xl mx-auto px-4">
         {/* Section Title */}
         <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
           className="text-4xl font-bold text-center mb-16"
         >
           <span className="gradient-text flex items-center justify-center gap-2">
@@ -73,14 +78,19 @@ const Experience = () => {
           {experiences.map((exp, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: i * 0.15 }}
-              viewport={{ once: true }}
+              initial={{ opacity: 0, x: -60, y: 30 }}
+              animate={isInView ? { opacity: 1, x: 0, y: 0 } : { opacity: 0, x: -60, y: 30 }}
+              transition={{ duration: 0.8, delay: 0.4 + i * 0.2 }}
+              whileHover={{ scale: 1.02, x: 10 }}
               className="relative bg-slate-800/40 border border-pink-500/10 rounded-xl p-6 shadow-md hover:shadow-pink-600/30 transition-all"
             >
               {/* Timeline Dot */}
-              <div className="absolute -left-[38px] top-4 w-4 h-4 bg-pink-500 rounded-full border-2 border-white" />
+              <motion.div 
+                className="absolute -left-[38px] top-4 w-4 h-4 bg-pink-500 rounded-full border-2 border-white"
+                initial={{ scale: 0 }}
+                animate={isInView ? { scale: 1 } : { scale: 0 }}
+                transition={{ duration: 0.5, delay: 0.6 + i * 0.2 }}
+              />
 
               {/* Internship Info */}
               <div className="mb-2">
@@ -100,12 +110,20 @@ const Experience = () => {
               {/* Tech Tags */}
               <div className="flex flex-wrap gap-2 mt-2">
                 {exp.technologies.map((tech, idx) => (
-                  <span
+                  <motion.span
                     key={idx}
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+                    transition={{ 
+                      duration: 0.5, 
+                      delay: 0.8 + i * 0.2 + idx * 0.1,
+                      ease: "easeOut"
+                    }}
+                    whileHover={{ scale: 1.05 }}
                     className="text-xs bg-slate-900 text-pink-300 px-3 py-1 rounded-full border border-pink-500/20 hover:bg-pink-700/20 transition"
                   >
                     {tech}
-                  </span>
+                  </motion.span>
                 ))}
               </div>
             </motion.div>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import ParticlesBackground from './ParticlesBackground';
 
 const Hero = () => {
   const [currentText, setCurrentText] = useState('');
@@ -37,6 +38,7 @@ const Hero = () => {
       id="home"
       className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900  to-slate-900 text-white px-4 md:px-0 relative"
     >
+      <ParticlesBackground />
       <div className="max-w-6xl w-full text-center z-10 py-20 md:py-32">
         <motion.h1
           initial={{ opacity: 0, y: -40 }}

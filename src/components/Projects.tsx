@@ -1,9 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useInView } from 'framer-motion';
+import { useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Github } from 'lucide-react';
 
 const Projects = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
   const projects = [
   {
   title: 'PR Power Infrastructure – Company Portfolio Website',
@@ -45,13 +50,12 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-24 bg-gradient-to-b from-slate-800 via-slate-900 to-slate-900 text-white">
+    <section ref={ref} id="projects" className="py-24 bg-gradient-to-b from-slate-800 via-slate-900 to-slate-900 text-white">
       <div className="section-container max-w-6xl mx-auto px-4">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
           className="text-center mb-16"
         >
           <h2 className="text-4xl font-bold mb-4 gradient-text">Featured Projects</h2>
@@ -64,15 +68,22 @@ const Projects = () => {
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.15 }}
-              viewport={{ once: true }}
+              initial={{ opacity: 0, y: 60, scale: 0.9 }}
+              animate={isInView ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 60, scale: 0.9 }}
+              transition={{ 
+                duration: 0.8, 
+                delay: 0.4 + index * 0.2,
+                ease: "easeOut"
+              }}
               whileHover={{ y: -4 }}
               className="rounded-2xl bg-slate-800/60 border border-slate-700 hover:border-pink-600/60 overflow-hidden shadow-xl hover:shadow-pink-700/40 transition-all duration-300"
             >
               {/* Image */}
-              <div className="relative">
+              <motion.div 
+                className="relative"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
                 <img
                   src={project.image}
                   alt={`${project.title} Screenshot`}
@@ -80,7 +91,7 @@ const Projects = () => {
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-              </div>
+              </motion.div>
 
               {/* Content */}
               <div className="p-6">
@@ -90,18 +101,31 @@ const Projects = () => {
                 {/* Tech Tags */}
                 <div className="flex flex-wrap gap-2 mb-6">
                   {project.technologies.map((tech, i) => (
-                    <span
+                    <motion.span
                       key={i}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+                      transition={{ 
+                        duration: 0.5, 
+                        delay: 0.6 + index * 0.2 + i * 0.1,
+                        ease: "easeOut"
+                      }}
+                      whileHover={{ scale: 1.05 }}
                       className="text-xs px-3 py-1 rounded-full bg-slate-700 text-pink-300 border border-pink-500/30"
                     >
                       {tech}
-                    </span>
+                    </motion.span>
                   ))}
                 </div>
 
                 {/* Buttons */}
                 <div className="flex gap-3">
-                  <Button
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="flex-1"
+                  >
+                    <Button
                     size="sm"
                     className="bg-pink-600 hover:bg-pink-700 text-white w-full"
                   >
@@ -114,7 +138,13 @@ const Projects = () => {
                       Live Demo
                     </a>
                   </Button>
-                  <Button
+                  </motion.div>
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="flex-1"
+                  >
+                    <Button
                     size="sm"
                     variant="outline"
                     className="bg-white text-slate-900 border border-slate-300 hover:bg-pink-50 w-full"
@@ -129,6 +159,7 @@ const Projects = () => {
                       Code
                     </a>
                   </Button>
+                  </motion.div>
                 </div>
               </div>
             </motion.div>
