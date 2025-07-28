@@ -5,15 +5,16 @@ import { Github } from 'lucide-react';
 
 const Projects = () => {
   const projects = [
-    {
-      title: 'ISAI – Musical Web App',
-      description:
-        'Music streaming platform with real-time upload, admin/user roles, and Firebase Auth. Fully responsive UI using Tailwind CSS.',
-      technologies: ['React.js', 'Tailwind CSS', 'Firebase', 'Cloudinary'],
-      image: '/images/music-player.png',
-      demoUrl: 'https://isai-player.netlify.app',
-      codeUrl: 'https://github.com/Aswini1008/ISAI-Music-App',
-    },
+  {
+  title: 'PR Power Infrastructure – Company Portfolio Website',
+  description:
+    'A responsive corporate website built with animated routing, reusable components, and scroll-based navigation across 6+ sections. Enhanced UX led to a 35% lower bounce rate.',
+  technologies: ['React.js', 'Tailwind CSS', 'React Router', 'Framer Motion', 'Vite'],
+  image: '/images/pr.png',
+  demoUrl: 'https://pr-power.netlify.app',
+  codeUrl: 'https://github.com/Aswini1008/PR-Final',
+},
+
     {
       title: 'Church Website',
       description:
